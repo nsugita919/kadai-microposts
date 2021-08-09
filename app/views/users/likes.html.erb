@@ -1,0 +1,25 @@
+<div class="row">
+  <%= render 'left_side' %>
+  <div class="col-sm-8">
+    <%= render 'user_tabs' %>
+      <ul class="list-unstyled mt-2">
+        <% @microposts.each do |micropost| %>
+          <li class="d-flex">
+            <img class="rounded me-2 mb-5" src="<%= gravatar_url(micropost.user, { size: 64 }) %>" alt="">
+            <div>
+              <div>
+                <%= link_to micropost.user.name, user_path(micropost.user), class: "text-decoration-none" %> <span class="text-muted">posted at <%= micropost.created_at %></span>
+              </div>
+              <div>
+                <p><%= micropost.content %></p>
+              </div>
+              <div>
+                <%= render 'favorites/like_button', micropost: micropost %>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+      <%== pagy_bootstrap_nav(@pagy) %>
+  </div>
+</div>
