@@ -16,6 +16,8 @@
             <ul class="dropdown-menu dropdown-menu-end">
               <li class="dropdown-item"><%= link_to 'My profile', user_path(current_user), class: 'nav-link' %></li>
               <li class="dropdown-divider"></li>
+              <li class="dropdown-item"><%= link_to 'My favorit posts', likes_user_path(current_user), class: 'nav-link' %></li>
+              <li class="dropdown-divider"></li>
               <li class="dropdown-item"><%= link_to 'Logout', logout_path, method: :delete, class: 'nav-link' %></li>
             </ul>
           </div>
